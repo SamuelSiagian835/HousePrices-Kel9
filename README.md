@@ -70,9 +70,3 @@ Industri properti membutuhkan model prediksi yang akurat untuk:
 Visualisasi evaluasi:
 - **Feature Importance**: Menunjukkan fitur-fitur utama yang memengaruhi harga.
 - **Actual vs Predicted**: Membandingkan nilai aktual dengan prediksi.
-
-
-## 🛠 **How to Run**
-1. Clone repository ini:
-   ```bash
-   git clone https://github.com/username/house-price-prediction.git
