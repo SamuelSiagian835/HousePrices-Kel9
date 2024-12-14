@@ -65,3 +65,12 @@ Industri properti membutuhkan model prediksi yang akurat untuk:
 Visualisasi evaluasi:
 - **Feature Importance**: Menunjukkan fitur-fitur utama yang memengaruhi harga.
 - **Actual vs Predicted**: Membandingkan nilai aktual dengan prediksi.
+
+---
+
+### **Deployment**
+
+![WhatsApp Image 2024-12-14 at 10 52 07_47644e65](https://github.com/user-attachments/assets/9671c4b3-29d3-48ec-b4d7-9c9284ae8e4b)
+
+Halaman web ini merupakan implementasi sistem Prediksi Harga Rumah yang memungkinkan pengguna untuk memperkirakan harga rumah berdasarkan detail yang dimasukkan. 
+Pengguna diminta untuk mengisi sejumlah informasi seperti kualitas rumah (OverallQual), luas area tinggal (GrLivArea), jumlah mobil di garasi (GarageCars), luas basement (TotalBsmtSF), jumlah kamar mandi (FullBath), hingga tahun pembangunan dan renovasi. 
