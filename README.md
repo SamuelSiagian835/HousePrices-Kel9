@@ -53,11 +53,6 @@ Industri properti membutuhkan model prediksi yang akurat untuk:
   - Mengurangi risiko overfitting dengan ensemble learning.
   - Menangani data kompleks dan non-linear.
   - Memberikan hasil robust meskipun terdapat variasi dalam data.
-  
-**Hyperparameter Tuning**:
-- Jumlah estimators (`n_estimators`).
-- Kedalaman maksimal (`max_depth`).
-- Minimum samples per split (`min_samples_split`).
 
 ---
 
