@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Harga Rumah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animasi scroll horizontal untuk background */
+        @keyframes scrollBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        .animate-scroll {
+            animation: scrollBackground 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header dengan gambar dan animasi -->
+    <header class="relative bg-gray-800 w-full h-56 md:h-72 overflow-hidden">
+        <!-- Gambar dengan animasi scrolling -->
+        <div class="absolute inset-0 w-full h-full bg-cover bg-center animate-scroll" 
+             style="background-image: url('{{ url_for('static', filename='images/header.jpg') }}'); background-size: cover;"></div>
+        <!-- Overlay hitam transparan -->
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
+            <h1 class="text-3xl md:text-5xl font-bold text-white">Prediksi Harga Rumah</h1>
+            <p class="text-white mt-2 text-center text-lg md:text-xl px-4">
+                Hitung estimasi harga rumah Anda dengan mudah dan cepat!
+            </p>
+        </div>
+    </header>
+
+    <!-- Kontainer Utama -->
+    <div class="container mx-auto mt-8 px-4">
+        <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4 text-center">Masukkan Detail Rumah Anda</h2>
+            <p class="text-gray-600 text-center mb-6">
+                Lengkapi informasi berikut untuk mengetahui estimasi harga rumah Anda.
+            </p>
+
+            <!-- Form Input -->
+            <form action="/predict" method="POST" class="space-y-4">
+                <!-- Input Fields -->
+                <div>
+                    <label for="OverallQual" class="block text-sm font-medium text-gray-700">OverallQual (Kualitas Rumah)</label>
+                    <input type="number" name="OverallQual" id="OverallQual" placeholder="1-10" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="GrLivArea" class="block text-sm font-medium text-gray-700">GrLivArea (Luas Area Tinggal)</label>
+                    <input type="number" name="GrLivArea" id="GrLivArea" placeholder="Masukkan luas area" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="GarageCars" class="block text-sm font-medium text-gray-700">GarageCars (Jumlah Mobil)</label>
+                    <input type="number" name="GarageCars" id="GarageCars" placeholder="Masukkan jumlah mobil" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="GarageArea" class="block text-sm font-medium text-gray-700">GarageArea (Luas Garasi)</label>
+                    <input type="number" name="GarageArea" id="GarageArea" placeholder="Masukkan luas garasi" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="TotalBsmtSF" class="block text-sm font-medium text-gray-700">TotalBsmtSF (Luas Basement)</label>
+                    <input type="number" name="TotalBsmtSF" id="TotalBsmtSF" placeholder="Masukkan luas basement" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="1stFlrSF" class="block text-sm font-medium text-gray-700">1stFlrSF (Luas Lantai 1)</label>
+                    <input type="number" name="1stFlrSF" id="1stFlrSF" placeholder="Masukkan luas lantai 1" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="FullBath" class="block text-sm font-medium text-gray-700">FullBath (Jumlah Kamar Mandi)</label>
+                    <input type="number" name="FullBath" id="FullBath" placeholder="Masukkan jumlah kamar mandi" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="TotRmsAbvGrd" class="block text-sm font-medium text-gray-700">TotRmsAbvGrd (Jumlah Ruangan)</label>
+                    <input type="number" name="TotRmsAbvGrd" id="TotRmsAbvGrd" placeholder="Masukkan jumlah ruangan" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="YearBuilt" class="block text-sm font-medium text-gray-700">YearBuilt (Tahun Dibangun)</label>
+                    <input type="number" name="YearBuilt" id="YearBuilt" placeholder="Masukkan tahun pembangunan" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="YearRemodAdd" class="block text-sm font-medium text-gray-700">YearRemodAdd (Tahun Renovasi)</label>
+                    <input type="number" name="YearRemodAdd" id="YearRemodAdd" placeholder="Masukkan tahun renovasi" required 
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition duration-300">
+                    Prediksi Harga
+                </button>
+            </form>
+
+            {% if prediction_text %}
+                <div class="mt-6 bg-green-100 text-green-800 p-4 rounded-lg shadow">
+                    <h2 class="text-lg font-medium">{{ prediction_text }}</h2>
+                </div>
+                <!-- Tombol Refresh -->
+                <button onclick="location.reload()" 
+                        class="mt-4 flex items-center justify-center mx-auto bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full shadow-sm transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582M20 20v-5h-.581M5.4 15.8a9 9 0 101.8-10.4"/>
+                    </svg>
+                </button>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
